@@ -88,8 +88,8 @@ h1{
 
 p{
  width: 70%;
-  display: inline-block;
-  
+ display: inline-block;
+
 }
 
 h3{
@@ -108,4 +108,9 @@ h3{
 
 hr{
   border: solid 1px white ;
+}
+
+#clearIcon{ 
+  width: 30px;
+  margin-bottom: -10px;
 }
