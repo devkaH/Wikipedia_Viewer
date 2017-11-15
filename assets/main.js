@@ -2,6 +2,7 @@ const $ = window.$
 var apiURL = 'https://en.wikipedia.org/w/api.php?callback=?'
 
 function searchResult () {
+  $('.searchBox').append("<img id='assets/clearIcon' src='icon.png'>")
 // call ajax for get informations
   $.getJSON(apiURL, {
     action: 'query',
@@ -41,7 +42,7 @@ function searchResult () {
 
  // clear prior search results
 function clearResults () {
-  $('.searchBox').append("<img id='clearIcon' src='icon.png'>")
+  $('.searchBox').append("<img id='clearIcon' src='assets/icon.png'>")
   $('#clearIcon').click(function () {
     $('#searchResult').empty()
     $('#search').val('')
