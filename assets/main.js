@@ -1,8 +1,17 @@
 const $ = window.$
 var apiURL = 'https://en.wikipedia.org/w/api.php?callback=?'
 
+ // clear prior search results
+function clearResults () {
+  $('.searchBox').append("<img id='clearIcon' src='assets/icon.png'>")
+  $('#clearIcon').click(function () {
+    $('#searchResult').empty()
+    $('#search').val('')
+    $('#clearIcon').remove()
+  })
+}
+
 function searchResult () {
-  $('.searchBox').append("<img id='assets/clearIcon' src='icon.png'>")
 // call ajax for get informations
   $.getJSON(apiURL, {
     action: 'query',
@@ -38,16 +47,6 @@ function searchResult () {
         "<a  href='" + resp.fullurl + "' target= '_blank'><div id='result' class='results'><h3>" + resp.title + "</h3><p  class='extract'>" + resp.extract.substring(0, resp.extract.indexOf('.') + 1) + '</p> </div><hr>')
     })
   }
-}
-
- // clear prior search results
-function clearResults () {
-  $('.searchBox').append("<img id='clearIcon' src='assets/icon.png'>")
-  $('#clearIcon').click(function () {
-    $('#searchResult').empty()
-    $('#search').val('')
-    $('#clearIcon').remove()
-  })
 }
 
   // trigger submit on use of enter key
